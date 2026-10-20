@@ -1,0 +1,12 @@
+[global]
+disable = ["MD013"]
+
+[per-file-ignores]
+"talk/**/*.md" = [
+    "MD025",
+    "MD003",
+    "MD001",
+    "MD026",
+    "MD036",
+    "MD034",
+]

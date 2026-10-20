@@ -1,0 +1,25 @@
+# Slide 50 demo: kill any process in the "default" namespace that tries to read /etc/shadow.
+# Namespaced on purpose: kind shares the laptop's kernel, and a cluster-wide policy
+# would also kill the host's own password checks (unix_chkpwd → sudo would break).
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicyNamespaced
+metadata:
+  name: block-shadow
+  namespace: default
+spec:
+  kprobes:
+  - call: "security_file_permission"
+    syscall: false
+    args:
+    - index: 0
+      type: "file"
+    - index: 1
+      type: "int"
+    selectors:
+    - matchArgs:
+      - index: 0
+        operator: "Equal"
+        values:
+        - "/etc/shadow"
+      matchActions:
+      - action: Sigkill

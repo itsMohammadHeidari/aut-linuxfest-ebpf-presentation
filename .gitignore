@@ -1,0 +1,13 @@
+/build/
+demos/vmlinux.h
+demos/compile_commands.json
+*.o
+demos/06-connsnoop/bpf_bpfe[bl].go
+demos/06-connsnoop/connsnoop
+
+*.mmdb
+*.mmdb.tmp
+
+.cache/
+
+.rumdl_cache/

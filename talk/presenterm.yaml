@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mfontanini/presenterm/master/config-file-schema.json
+
+options:
+  list_item_newlines: 2
+
+defaults:
+  image_protocol: kitty-local
+
+  incremental_lists:
+    pause_before: false
+    pause_after: false
+
+speaker_notes:
+  always_publish: true
+
+snippet:
+  exec:
+    enable: true
+  render:
+    threads: 4
+
+d2:
+  scale: 2
+
+export:
+  # 180 columns: the widest tables (slides "Three ways into the kernel", "XDP vs TC
+  # vs DPDK") and the footer need ~150; 51 rows keeps the page at ~16:9.
+  dimensions:
+    columns: 180
+    rows: 51

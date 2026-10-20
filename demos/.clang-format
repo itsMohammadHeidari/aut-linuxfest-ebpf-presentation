@@ -1,0 +1,10 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 80
+BreakBeforeBraces: Linux
+AllowShortIfStatementsOnASingleLine: Never
+# Keep "//go:build ignore" (connsnoop.bpf.c) as is: with a space, Go no longer
+# sees it as a build constraint and refuses the C file in a Go package.
+SpacesInLineCommentPrefix:
+  Minimum: 0
+  Maximum: -1
